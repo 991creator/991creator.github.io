@@ -1,12 +1,52 @@
+<!DOCTYPE html>
 <html>
-    <head >
-    </head>
-    <body>
-        <p>hello!</p>
-        <p>my name is 991</p>
-        <div style="flex: flex; flex-direction: row; align-items: center; justify-content: start;"> 
-            <p>I am working on the best projects here:</p>
-            <a href="https://nomicolabs.vercel.app/" target="_blank">Nomico Labs</a>
-        </div>
-    </body>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>#991UNIVERSE</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Courier New', Courier, monospace;
+            color: chartreuse;
+            overflow: hidden;
+        }
+        
+        .typing-animation {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typing 4s steps(40) forwards;
+        }
+        
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p><span class="typing-animation">hello!</span></p>
+    <p><span class="typing-animation">I am 991creator</span></p>
+    <p><span class="typing-animation">My developer stack: Next JS, React, Tailwind CSS.</span></p>
+    <p><span class="typing-animation">I am creating the best project: <a style="color: white" href="https://nomicolabs.vercel.app/" target="_blank">Nomico Labs</a>.</span></p>
+    <p>_</p>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const typingElements = document.querySelectorAll('.typing-animation');
+
+            typingElements.forEach(element => {
+                const delay = parseInt(element.dataset.delay) || 0;
+
+                setTimeout(() => {
+                    element.style.display = 'inline-block';
+                }, delay);
+            });
+        });
+    </script>
+</body>
 </html>
