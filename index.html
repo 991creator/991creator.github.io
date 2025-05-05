@@ -1,53 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>#991UNIVERSE</title>
     <style>
         body {
             background-color: black;
             font-family: 'Courier New', Courier, monospace;
             color: chartreuse;
-            overflow: hidden;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
-        
-        .typing-animation {
+
+        .typing-line {
             overflow: hidden;
             white-space: nowrap;
+            border-right: 2px solid chartreuse;
+            font-size: 1.2rem;
             width: 0;
-            animation: typing 4s steps(40) forwards;
+            animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+            margin: 10px 0;
+            max-width: 90vw;
         }
-        
+
         @keyframes typing {
-            0% {
-                width: 0;
-            }
-            100% {
-                width: 100%;
-            }
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px 0;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .links a:hover {
+            color: chartreuse;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
-    <p><span class="typing-animation">hello!</span></p>
-    <p><span class="typing-animation">I am 991creator - very ambitious dude with crazy ideas about crypto and IT in general.</span></p>
-    <p><span class="typing-animation">Enjoy creating WEB projects using React and Next JS with WAGMI JS.</span></p>
-    <p><span class="typing-animation">↓     ↓     ↓</span></p>
-    <a style="color: white" href="https://nomicolabs.vercel.app/" target="_blank">>Nomico Labs</span></a><br />
-    <a style="color: white" href="https://busi.vercel.app/" target="_blank">>BUSI Labs</span></a>
-    <p><span class="typing-animation">Currently learning data analytics and vizualization.</span></p>
-    <p>_</p>
+    <p class="typing-line">hello!</p>
+    <p class="typing-line">I am 991creator – currently a Data Analyst on a journey to become a functional Data Scientist.</p>
+    <p class="typing-line">Passionate about transforming raw data into impactful insights & building smart solutions.</p>
+    <p class="typing-line">Enjoy working with Python, SQL, Polars, and love automating with AI & ML.</p>
+    <p class="typing-line">↓     ↓     ↓</p>
+    <p class="typing-line">Currently deepening my skills in data visualization & machine learning.</p>
+
+    <footer>© 2025 991creator | #991UNIVERSE</footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const typingElements = document.querySelectorAll('.typing-animation');
-
-            typingElements.forEach(element => {
-                const delay = parseInt(element.dataset.delay) || 0;
-
-                setTimeout(() => {
-                    element.style.display = 'inline-block';
-                }, delay);
+            const lines = document.querySelectorAll('.typing-line');
+            lines.forEach((line, index) => {
+                line.style.animationDelay = `${index * 2.5}s`;
             });
         });
     </script>
